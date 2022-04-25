@@ -95,7 +95,8 @@ def getBearDetails(driver, bear_url):
         'bear_collection': bear_content.find_elements(By.TAG_NAME, "p")[1].text.replace("Collection\n", ""),
         'bear_year': bear_content.find_elements(By.TAG_NAME, "p")[2].text.replace("Year\n", ""),
         'bear_height_paws': bear_content.find_elements(By.TAG_NAME, "p")[3].text.replace("Height in bear paws\n", ""),
-        'image_url': image.lstrip('url("').rstrip('")')
+        'image_url': image.lstrip('url("').rstrip('")'),
+        'bear_library_url': driver.current_url
     }
 
 
@@ -124,6 +125,7 @@ def __init__():
 
         allData.append({
             'collection': collection['collection_title'],
+            'collection_url': collection['collection_url'],
             'bears': collection_details
         })
 
