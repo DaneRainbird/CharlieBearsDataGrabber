@@ -31,7 +31,7 @@ def createDriver():
     options.add_experimental_option("prefs", {"profile.managed_default_content_settings.images": 2})
 
     # Create a new webdriver with provided options
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager(log_level=0, print_first_line=False).install()),
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()),
                               options=options)
 
     return driver
